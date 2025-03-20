@@ -67,34 +67,42 @@ const Hero = () => {
           </div>
           
           <div className="relative animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="hexagon-clip overflow-hidden bg-aavishkar-green/10 aspect-square">
-                <img 
-                  src="/lovable-uploads/67bb11fe-a984-4aec-8687-f7114234aeb3.png" 
-                  alt="Student with trophy" 
-                  className="w-full h-full object-cover"
-                />
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              <div className="group transform transition-all duration-300 hover:scale-105">
+                <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-green/20 shadow-lg aspect-square">
+                  <img 
+                    src="/lovable-uploads/67bb11fe-a984-4aec-8687-f7114234aeb3.png" 
+                    alt="Student with trophy" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
               </div>
-              <div className="hexagon-clip overflow-hidden bg-aavishkar-yellow/10 aspect-square mt-8">
-                <img 
-                  src="/lovable-uploads/e330865f-5aec-48fb-ab63-62950900dfa0.png" 
-                  alt="Aquabot in water" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="group transform transition-all duration-300 hover:scale-105 mt-8">
+                <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-yellow/20 shadow-lg aspect-square">
+                  <img 
+                    src="/lovable-uploads/e330865f-5aec-48fb-ab63-62950900dfa0.png" 
+                    alt="Aquabot in water" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
               </div>
-              <div className="hexagon-clip overflow-hidden bg-aavishkar-blue/10 aspect-square -mt-8">
-                <img 
-                  src="/lovable-uploads/3b4906c4-0330-49d8-8bc7-06de5a224192.png" 
-                  alt="KURC team" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="group transform transition-all duration-300 hover:scale-105 -mt-8">
+                <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-blue/20 shadow-lg aspect-square">
+                  <img 
+                    src="/lovable-uploads/3b4906c4-0330-49d8-8bc7-06de5a224192.png" 
+                    alt="KURC team" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
               </div>
-              <div className="hexagon-clip overflow-hidden bg-aavishkar-darkblue/10 aspect-square">
-                <img 
-                  src="/lovable-uploads/d553e50d-8757-408f-853c-7bd93298485f.png" 
-                  alt="Innovation showcase" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="group transform transition-all duration-300 hover:scale-105">
+                <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-darkblue/20 shadow-lg aspect-square">
+                  <img 
+                    src="/lovable-uploads/d553e50d-8757-408f-853c-7bd93298485f.png" 
+                    alt="Innovation showcase" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
               </div>
             </div>
 
