@@ -1,9 +1,47 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
+  // Set the event date to April 1, 2025
+  const eventDate = new Date('2025-04-01T00:00:00');
+  
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const difference = eventDate.getTime() - now.getTime();
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / (1000 * 60)) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        });
+      } else {
+        // If event date has passed
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Calculate immediately
+    calculateTimeLeft();
+    
+    // Set up interval to update the countdown
+    const timer = setInterval(calculateTimeLeft, 1000);
+    
+    // Clear interval on component unmount
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section 
       id="home" 
@@ -41,6 +79,45 @@ const Hero = () => {
             >
               ANNUAL FLAGSHIP EVENT
             </h2>
+            
+            {/* Countdown Timer */}
+            <div className="grid grid-cols-4 gap-2 md:gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <div className="flex flex-col items-center">
+                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-darkblue text-center">
+                    {timeLeft.days}
+                  </div>
+                </div>
+                <div className="text-sm mt-1 text-gray-600">Days</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-blue text-center">
+                    {timeLeft.hours}
+                  </div>
+                </div>
+                <div className="text-sm mt-1 text-gray-600">Hours</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-green text-center">
+                    {timeLeft.minutes}
+                  </div>
+                </div>
+                <div className="text-sm mt-1 text-gray-600">Minutes</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-yellow text-center">
+                    {timeLeft.seconds}
+                  </div>
+                </div>
+                <div className="text-sm mt-1 text-gray-600">Seconds</div>
+              </div>
+            </div>
             
             <p 
               className="text-lg md:text-xl text-foreground/80 animate-fade-in-up"
