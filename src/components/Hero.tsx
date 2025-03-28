@@ -4,13 +4,11 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
-  // Set the event date to April 1, 2025
-  const eventDate = new Date('2025-04-01T00:00:00');
-  
+  // Set the one minute countdown (60 seconds)
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
-    minutes: 0,
+    minutes: 1,
     seconds: 0
   });
   
@@ -18,34 +16,43 @@ const Hero = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const now = new Date();
-      const difference = eventDate.getTime() - now.getTime();
+      // Convert current time left to total seconds
+      let totalSeconds = 
+        timeLeft.days * 24 * 60 * 60 + 
+        timeLeft.hours * 60 * 60 + 
+        timeLeft.minutes * 60 + 
+        timeLeft.seconds;
       
-      if (difference > 0) {
+      if (totalSeconds > 0) {
+        // Decrease by 1 second
+        totalSeconds -= 1;
+        
+        // Convert back to days, hours, minutes, seconds
+        const days = Math.floor(totalSeconds / (24 * 60 * 60));
+        const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+        const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+        
         setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / (1000 * 60)) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
+          days,
+          hours,
+          minutes,
+          seconds
         });
-        setEventStarted(false);
       } else {
-        // If event date has passed
+        // If countdown is over
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         setEventStarted(true);
         handleEventStart();
       }
     };
 
-    // Calculate immediately
-    calculateTimeLeft();
-    
     // Set up interval to update the countdown
     const timer = setInterval(calculateTimeLeft, 1000);
     
     // Clear interval on component unmount
     return () => clearInterval(timer);
-  }, []);
+  }, [timeLeft]);
   
   const handleEventStart = () => {
     // Function to handle any additional actions when the event starts
