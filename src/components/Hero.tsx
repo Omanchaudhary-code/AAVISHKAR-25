@@ -13,6 +13,8 @@ const Hero = () => {
     minutes: 0,
     seconds: 0
   });
+  
+  const [eventStarted, setEventStarted] = useState(false);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -26,9 +28,12 @@ const Hero = () => {
           minutes: Math.floor((difference / (1000 * 60)) % 60),
           seconds: Math.floor((difference / 1000) % 60)
         });
+        setEventStarted(false);
       } else {
         // If event date has passed
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setEventStarted(true);
+        handleEventStart();
       }
     };
 
@@ -41,6 +46,12 @@ const Hero = () => {
     // Clear interval on component unmount
     return () => clearInterval(timer);
   }, []);
+  
+  const handleEventStart = () => {
+    // Function to handle any additional actions when the event starts
+    console.log("Event has started!");
+    // Additional actions can be added here like updating other UI elements
+  };
 
   return (
     <section 
@@ -80,44 +91,55 @@ const Hero = () => {
               ANNUAL FLAGSHIP EVENT
             </h2>
             
-            {/* Countdown Timer */}
-            <div className="grid grid-cols-4 gap-2 md:gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <div className="flex flex-col items-center">
-                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
-                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-darkblue text-center">
-                    {timeLeft.days}
+            {/* Conditional Rendering - Countdown Timer or Event Started Message */}
+            {!eventStarted ? (
+              <div className="grid grid-cols-4 gap-2 md:gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                    <div className="text-2xl md:text-4xl font-bold text-aavishkar-darkblue text-center">
+                      {timeLeft.days}
+                    </div>
                   </div>
+                  <div className="text-sm mt-1 text-gray-600">Days</div>
                 </div>
-                <div className="text-sm mt-1 text-gray-600">Days</div>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
-                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-blue text-center">
-                    {timeLeft.hours}
+                
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                    <div className="text-2xl md:text-4xl font-bold text-aavishkar-blue text-center">
+                      {timeLeft.hours}
+                    </div>
                   </div>
+                  <div className="text-sm mt-1 text-gray-600">Hours</div>
                 </div>
-                <div className="text-sm mt-1 text-gray-600">Hours</div>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
-                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-green text-center">
-                    {timeLeft.minutes}
+                
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                    <div className="text-2xl md:text-4xl font-bold text-aavishkar-green text-center">
+                      {timeLeft.minutes}
+                    </div>
                   </div>
+                  <div className="text-sm mt-1 text-gray-600">Minutes</div>
                 </div>
-                <div className="text-sm mt-1 text-gray-600">Minutes</div>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
-                  <div className="text-2xl md:text-4xl font-bold text-aavishkar-yellow text-center">
-                    {timeLeft.seconds}
+                
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-lg p-2 md:p-4 w-full">
+                    <div className="text-2xl md:text-4xl font-bold text-aavishkar-yellow text-center">
+                      {timeLeft.seconds}
+                    </div>
                   </div>
+                  <div className="text-sm mt-1 text-gray-600">Seconds</div>
                 </div>
-                <div className="text-sm mt-1 text-gray-600">Seconds</div>
               </div>
-            </div>
+            ) : (
+              <div className="animate-fade-in py-6 px-8 bg-gradient-to-r from-aavishkar-darkblue to-aavishkar-blue rounded-lg shadow-lg">
+                <div className="text-2xl md:text-4xl font-bold text-white text-center animate-pulse">
+                  Event Happening Now!
+                </div>
+                <div className="text-sm md:text-base text-white/80 mt-2 text-center">
+                  Join us at Kathmandu University Campus
+                </div>
+              </div>
+            )}
             
             <p 
               className="text-lg md:text-xl text-foreground/80 animate-fade-in-up"
