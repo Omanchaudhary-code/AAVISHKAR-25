@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +23,11 @@ const Navbar = () => {
   }, [scrolled]);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Events', href: '#events' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Events', href: '/#events' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -37,7 +38,7 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <div className="w-10 h-10 bg-aavishkar-green rounded-full flex items-center justify-center">
             <div className="w-6 h-6 text-white">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,18 +47,28 @@ const Navbar = () => {
             </div>
           </div>
           <span className="text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('/#') ? (
+              <a 
+                key={link.name} 
+                href={link.href}
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link 
+                key={link.name} 
+                to={link.href}
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
           <a 
             href="#register" 
@@ -82,14 +93,25 @@ const Navbar = () => {
         <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 border-t border-gray-100 animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href}
-                className="text-foreground py-2 text-sm font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
+              link.href.startsWith('/#') ? (
+                <a 
+                  key={link.name} 
+                  href={link.href}
+                  className="text-foreground py-2 text-sm font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link 
+                  key={link.name} 
+                  to={link.href}
+                  className="text-foreground py-2 text-sm font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <a 
               href="#register" 
