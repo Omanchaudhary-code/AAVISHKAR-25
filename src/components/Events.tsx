@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
@@ -207,13 +206,7 @@ const Events = () => {
                     <h3 className="text-xl font-display font-semibold mb-2 text-aavishkar-darkblue">
                       {event.title}
                     </h3>
-                    <p className="text-foreground/70 text-sm mb-4">
-                      {event.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="text-xs font-medium text-aavishkar-green">
-                        Budget: {event.budget}
-                      </div>
+                    <div className="flex items-center justify-end">
                       <Button 
                         variant="outline" 
                         className="text-aavishkar-blue border-aavishkar-blue/30 hover:bg-aavishkar-blue/10"
@@ -285,7 +278,8 @@ const Events = () => {
                 
                 <div>
                   <h4 className="text-lg font-semibold mb-2 text-aavishkar-blue">About the Event</h4>
-                  <p className="text-foreground/80">{selectedEvent.fullDescription}</p>
+                  <p className="text-foreground/80">{selectedEvent.description}</p>
+                  <p className="text-foreground/80 mt-2">{selectedEvent.fullDescription}</p>
                 </div>
 
                 <div>
