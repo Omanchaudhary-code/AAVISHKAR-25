@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const preEvents = [
   {
@@ -117,6 +119,7 @@ const Events = () => {
   const [activeTab, setActiveTab] = useState('main');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const openEventDetails = (event) => {
     setSelectedEvent(event);
@@ -166,7 +169,7 @@ const Events = () => {
 
         {/* Pre-Events Grid */}
         {activeTab === 'pre' && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {preEvents.map((event) => (
               <div 
                 key={event.title}
@@ -188,22 +191,22 @@ const Events = () => {
 
         {/* Main Events */}
         {activeTab === 'main' && (
-          <div className="grid lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="lg:col-span-2 space-y-4 md:space-y-6">
               {mainEvents.map((event) => (
                 <div 
                   key={event.title}
-                  className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] flex flex-col md:flex-row"
+                  className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:translate-y-[-2px] flex flex-col sm:flex-row"
                 >
-                  <div className="md:w-1/4 aspect-square md:aspect-auto">
+                  <div className="sm:w-1/3 md:w-1/4 aspect-video sm:aspect-square">
                     <img 
                       src={event.image} 
                       alt={event.title}
                       className="w-full h-full object-cover" 
                     />
                   </div>
-                  <div className="p-6 md:w-3/4">
-                    <h3 className="text-xl font-display font-semibold mb-2 text-aavishkar-darkblue">
+                  <div className="p-4 md:p-6 sm:w-2/3 md:w-3/4 flex flex-col justify-between">
+                    <h3 className="text-xl font-display font-semibold mb-2 md:mb-4 text-aavishkar-darkblue">
                       {event.title}
                     </h3>
                     <div className="flex items-center justify-end">
@@ -220,7 +223,7 @@ const Events = () => {
               ))}
             </div>
 
-            <div className="bg-gray-100 rounded-xl p-8 h-fit sticky top-24">
+            <div className="bg-gray-100 rounded-xl p-6 md:p-8 h-fit sticky top-24 order-first lg:order-last mb-8 lg:mb-0">
               <div className="mb-6">
                 <h3 className="text-xl font-display font-semibold mb-2 text-center">
                   Main Event Highlights
@@ -228,7 +231,7 @@ const Events = () => {
                 <div className="h-1 w-12 bg-aavishkar-yellow mx-auto mb-6 rounded-full" />
               </div>
 
-              <div className="space-y-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-4">
                 {highlights.map((item) => (
                   <div 
                     key={item.text}
@@ -255,7 +258,10 @@ const Events = () => {
 
       {/* Event Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-2xl">
+        <DialogContent className={cn(
+          "sm:max-w-2xl overflow-y-auto",
+          isMobile && "max-h-[90vh]"
+        )}>
           {selectedEvent && (
             <>
               <DialogHeader>
