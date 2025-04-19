@@ -14,13 +14,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-aavishkar-green rounded-full flex items-center justify-center">
-                <div className="w-6 h-6 text-white">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L6 12L12 22L18 12L12 2Z" fill="currentColor" />
-                  </svg>
-                </div>
-              </div>
+              <img 
+                src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
+                alt="KURC Logo" 
+                className="w-12 h-12"
+              />
               <span className="text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
             </div>
             <p className="text-white/70 mb-6">
