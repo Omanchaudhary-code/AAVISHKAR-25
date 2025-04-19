@@ -1,21 +1,19 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import Events from '@/components/Events';
-import Stats from '@/components/Stats';
+import Timeline from '@/components/Timeline';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const PastEvents = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <Hero />
-      <Events />
-      <Stats />
+      <div className="pt-20">
+        <Timeline />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default PastEvents;
