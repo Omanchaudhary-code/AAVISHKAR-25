@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
@@ -42,9 +43,9 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
             alt="KURC Logo" 
-            className="w-12 h-12"
+            className="w-10 h-10 md:w-12 md:h-12 object-contain"
           />
-          <span className="text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
+          <span className="text-lg md:text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">

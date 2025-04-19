@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { cn } from "@/lib/utils";
 import { Mail, MapPin, Globe } from "lucide-react";
@@ -5,7 +6,6 @@ import { Mail, MapPin, Globe } from "lucide-react";
 const Footer = () => {
   return (
     <footer id="contact" className="bg-aavishkar-darkblue text-white pt-16 pb-8 relative overflow-hidden">
-      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/20 to-transparent" />
       </div>
@@ -17,11 +17,11 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
                 alt="KURC Logo" 
-                className="w-12 h-12"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
               />
-              <span className="text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
+              <span className="text-lg md:text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
             </div>
-            <p className="text-white/70 mb-6">
+            <p className="text-white/70 mb-6 text-sm md:text-base">
               The annual technical festival of Kathmandu University Robotics Club (KURC).
             </p>
             <div className="text-white/70 text-sm">
