@@ -5,17 +5,12 @@ import { Mail, MapPin, Globe } from "lucide-react";
 const Footer = () => {
   return (
     <footer id="contact" className="bg-aavishkar-darkblue text-white pt-16 pb-8 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/20 to-transparent" />
-      </div>
-
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <img 
-                src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
+                src="/lovable-uploads/0c34dc37-25c7-4019-ac32-56a32f7bb7bc.png" 
                 alt="KURC Logo" 
                 className="w-12 h-12"
               />
