@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-=======
 import { Link } from "react-router-dom";
->>>>>>> refs/remotes/origin/main
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,17 +23,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-<<<<<<< HEAD
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Events', href: '#events' },
-    { name: 'Competition', href: '/competition' },
-=======
     { name: 'About', href: '/about' },
-    { name: 'Projects', href: '/projects' },
     { name: 'Events', href: '/#events' },
     { name: 'Contact', href: '/#contact' },
->>>>>>> refs/remotes/origin/main
   ];
 
   return (
@@ -59,18 +47,8 @@ const Navbar = () => {
           <span className="text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-<<<<<<< HEAD
-            <Link 
-              key={link.name} 
-              to={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-            >
-              {link.name}
-            </Link>
-=======
             link.href.startsWith('/#') ? (
               <a 
                 key={link.name} 
@@ -88,11 +66,9 @@ const Navbar = () => {
                 {link.name}
               </Link>
             )
->>>>>>> refs/remotes/origin/main
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-foreground p-2" 
           onClick={() => setIsOpen(!isOpen)}
@@ -102,21 +78,10 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 border-t border-gray-100 animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-<<<<<<< HEAD
-              <Link 
-                key={link.name} 
-                to={link.href}
-                className="text-foreground py-2 text-sm font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-=======
               link.href.startsWith('/#') ? (
                 <a 
                   key={link.name} 
@@ -136,7 +101,6 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               )
->>>>>>> refs/remotes/origin/main
             ))}
           </div>
         </div>

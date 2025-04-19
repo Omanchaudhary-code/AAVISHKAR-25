@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { cn } from "@/lib/utils";
-import { ChevronRight, CircuitBoard, Robot, Waves, Lightbulb, Dumbbell, Rocket } from "lucide-react";
+import { ChevronRight, CircuitBoard, Bot, Waves, Lightbulb, Dumbbell, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -67,7 +66,7 @@ const mainEvents = [
     description: "Robo Race is a competition where teams design, build and race autonomous robots on a set course, using sensors and computer vision. The goal is to complete the course quickly and accurately.",
     budget: "185k",
     image: "/images/robo-race.jpg",
-    icon: <Robot className="h-6 w-6 text-aavishkar-green" />,
+    icon: <Bot className="h-6 w-6 text-aavishkar-green" />,
     color: "from-aavishkar-green/20 to-aavishkar-green/5",
     fullDescription: "Robo Race is an exciting competition that challenges teams to design, build, and race autonomous robots on a challenging track. Participants must create robots that can navigate obstacles, make turns, and reach the finish line in the shortest time possible. The robots must use sensors and computer vision to detect the track boundaries and obstacles without human intervention during the race. This event tests participants' skills in mechanical design, electronics, programming, and AI implementation. Teams will compete in multiple rounds, with the fastest robots advancing to the finals.",
     requirements: "Teams need to bring their own robot components, including motors, controllers, sensors, and power sources. A detailed rulebook will be provided prior to the event.",

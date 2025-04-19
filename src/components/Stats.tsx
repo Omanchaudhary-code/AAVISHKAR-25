@@ -51,25 +51,41 @@ const Stats = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
-          {stats.map((stat) => (
-            <div 
-              key={stat.title}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center hover:bg-white/15 transition-colors duration-300 border border-white/10"
-            >
-              <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-4 mx-auto text-2xl">
-                {stat.icon}
+        <div className="overflow-hidden">
+          <div className="flex animate-marquee">
+            {[...stats, ...stats].map((stat, index) => (
+              <div 
+                key={`${stat.title}-${index}`}
+                className="flex-none w-64 mx-4 bg-white/10 backdrop-blur-md rounded-xl p-6 text-center hover:bg-white/15 transition-colors duration-300 border border-white/10"
+              >
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-4 mx-auto text-2xl">
+                  {stat.icon}
+                </div>
+                <h3 className="text-base font-medium text-white/80 mb-2">
+                  {stat.title}
+                </h3>
+                <p className="text-2xl md:text-3xl font-display font-bold text-white">
+                  {stat.value}
+                </p>
               </div>
-              <h3 className="text-base font-medium text-white/80 mb-2">
-                {stat.title}
-              </h3>
-              <p className="text-2xl md:text-3xl font-display font-bold text-white">
-                {stat.value}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

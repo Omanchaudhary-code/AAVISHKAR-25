@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { cn } from "@/lib/utils";
 import { Mail, MapPin, Globe } from "lucide-react";
@@ -69,16 +68,14 @@ const Footer = () => {
           </div>
 
           <div className="w-full h-64 relative">
-
-  <iframe
-    title="Kathmandu University Robotics Club Map"
-    className="absolute top-0 left-0 w-full h-full border-0"
-    loading="lazy"
-    allowFullScreen
-    src="https://maps.google.com/maps?q=Kathmandu+University+Robotics+club&output=embed"
-  ></iframe>
-</div>
-
+            <iframe
+              title="Kathmandu University Robotics Club Map"
+              className="absolute top-0 left-0 w-full h-full border-0"
+              loading="lazy"
+              allowFullScreen
+              src="https://maps.google.com/maps?q=Kathmandu+University+Robotics+club&output=embed"
+            ></iframe>
+          </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 text-center text-white/50 text-sm">
