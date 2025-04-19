@@ -8,8 +8,8 @@ const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
-    minutes: 1,
-    seconds: 0
+    minutes: 0,
+    seconds: 5
   });
   
   const [eventStarted, setEventStarted] = useState(false);
@@ -143,7 +143,7 @@ const Hero = () => {
                   Event Happening Now!
                 </div>
                 <div className="text-sm md:text-base text-white/80 mt-2 text-center">
-                  Join us at Kathmandu University Campus
+                  Join us at Kathmandu University
                 </div>
               </div>
             )}

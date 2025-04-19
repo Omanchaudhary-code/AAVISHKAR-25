@@ -68,23 +68,17 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-display font-semibold mb-4">Join with KURC in</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <a href="#projects" className="bg-white/10 hover:bg-white/15 transition-colors p-4 rounded-lg text-center">
-                <div className="text-lg font-medium">Projects</div>
-              </a>
-              <a href="#research" className="bg-white/10 hover:bg-white/15 transition-colors p-4 rounded-lg text-center">
-                <div className="text-lg font-medium">Research</div>
-              </a>
-              <a href="#events" className="bg-white/10 hover:bg-white/15 transition-colors p-4 rounded-lg text-center">
-                <div className="text-lg font-medium">Events</div>
-              </a>
-              <a href="#workshop" className="bg-white/10 hover:bg-white/15 transition-colors p-4 rounded-lg text-center">
-                <div className="text-lg font-medium">Workshop</div>
-              </a>
-            </div>
-          </div>
+          <div className="w-full h-64 relative">
+
+  <iframe
+    title="Kathmandu University Robotics Club Map"
+    className="absolute top-0 left-0 w-full h-full border-0"
+    loading="lazy"
+    allowFullScreen
+    src="https://maps.google.com/maps?q=Kathmandu+University+Robotics+club&output=embed"
+  ></iframe>
+</div>
+
         </div>
 
         <div className="border-t border-white/10 pt-6 text-center text-white/50 text-sm">
