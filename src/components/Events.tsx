@@ -138,6 +138,11 @@ const Events = () => {
     setIsDialogOpen(true);
   };
 
+  const getPreviewText = (text, max = 120) => {
+    if (!text) return '';
+    return text.length > max ? text.slice(0, max) + '...' : text;
+  };
+
   return (
     <section id="events" className="py-16 md:py-24 bg-gradient-to-b from-aavishkar-blue/5 to-white relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
@@ -151,7 +156,6 @@ const Events = () => {
           </p>
         </div>
 
-        {/* Tab Navigation */}
         <div className="flex justify-center mb-10">
           <div className="bg-gray-100 p-1 rounded-full inline-flex">
             <button 
@@ -179,7 +183,6 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Pre-Events Grid */}
         {activeTab === 'pre' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {preEvents.map((event) => (
@@ -201,7 +204,6 @@ const Events = () => {
           </div>
         )}
 
-        {/* Main Events */}
         {activeTab === 'main' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2 space-y-4 md:space-y-6">
@@ -221,6 +223,9 @@ const Events = () => {
                       <h3 className="text-xl font-display font-semibold mb-4 text-aavishkar-darkblue">
                         {event.title}
                       </h3>
+                      <p className="text-foreground/70 text-sm min-h-[44px]">
+                        {getPreviewText(event.description, 120)}
+                      </p>
                       <div className="mt-auto flex items-center justify-end">
                         <Button 
                           variant="outline" 
@@ -269,7 +274,6 @@ const Events = () => {
         )}
       </div>
 
-      {/* Event Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className={cn(
           "sm:max-w-2xl overflow-y-auto",
