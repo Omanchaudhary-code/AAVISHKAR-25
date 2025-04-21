@@ -14,12 +14,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-6 min-w-0">
-              <div className="rounded-full bg-white shadow-md border border-gray-200 p-1.5 md:p-2 w-11 h-11 md:w-14 md:h-14 flex items-center justify-center">
-                <img 
-                  src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
-                  alt="KURC Logo" 
-                  className="w-8 h-8 md:w-10 md:h-10 object-cover drop-shadow-md"
+              <div className="rounded-xl bg-glass shadow-xl border border-aavishkar-blue p-2 w-16 h-16 flex items-center justify-center">
+                <img
+                  src="/lovable-uploads/e7bca271-75d7-48e4-a811-6b7681706463.png"
+                  alt="Aavishkar Owl Mascot"
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain"
                   draggable={false}
+                  style={{ background: 'transparent' }}
                 />
               </div>
               <span className="text-lg md:text-xl font-display font-semibold whitespace-nowrap">
@@ -70,10 +71,11 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="w-full h-64 relative">
+          <div className="w-full h-64 relative flex flex-col">
+            <span className="text-base font-semibold text-white mb-2 z-20">Visit Us:</span>
             <iframe
               title="Kathmandu University Robotics Club Map"
-              className="absolute top-0 left-0 w-full h-full border-0"
+              className="absolute top-7 left-0 w-full h-[calc(100%-1.5rem)] border-0 rounded-xl shadow-lg z-10"
               loading="lazy"
               allowFullScreen
               src="https://maps.google.com/maps?q=Kathmandu+University+Robotics+club&output=embed"
@@ -90,4 +92,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
