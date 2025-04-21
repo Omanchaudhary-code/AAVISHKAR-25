@@ -34,18 +34,21 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 md:py-4",
         scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <img 
-            src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
-            alt="KURC Logo" 
-            className="w-10 h-10 md:w-12 md:h-12 object-contain"
-          />
-          <span className="text-lg md:text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 min-w-0">
+          <div className="rounded-full bg-white shadow-md border border-gray-200 p-1.5 md:p-2 w-11 h-11 md:w-14 md:h-14 flex items-center justify-center transition-all duration-300">
+            <img 
+              src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
+              alt="KURC Logo" 
+              className="w-8 h-8 md:w-10 md:h-10 object-cover drop-shadow-md"
+              draggable={false}
+            />
+          </div>
+          <span className="text-lg md:text-xl font-display font-semibold whitespace-nowrap">Aavishkar<span className="text-aavishkar-green">25</span></span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
@@ -71,7 +74,7 @@ const Navbar = () => {
         </div>
 
         <button 
-          className="md:hidden text-foreground p-2" 
+          className="md:hidden text-foreground p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-aavishkar-blue/20"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -80,7 +83,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 border-t border-gray-100 animate-fade-in">
+        <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 border-t border-gray-100 animate-fade-in z-50">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               link.href.startsWith('/#') ? (
@@ -111,3 +114,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

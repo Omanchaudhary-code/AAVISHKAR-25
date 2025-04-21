@@ -10,16 +10,21 @@ const Footer = () => {
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/20 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <img 
-                src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
-                alt="KURC Logo" 
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
-              />
-              <span className="text-lg md:text-xl font-display font-semibold">Aavishkar<span className="text-aavishkar-green">25</span></span>
+            <div className="flex items-center gap-3 mb-6 min-w-0">
+              <div className="rounded-full bg-white shadow-md border border-gray-200 p-1.5 md:p-2 w-11 h-11 md:w-14 md:h-14 flex items-center justify-center">
+                <img 
+                  src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png" 
+                  alt="KURC Logo" 
+                  className="w-8 h-8 md:w-10 md:h-10 object-cover drop-shadow-md"
+                  draggable={false}
+                />
+              </div>
+              <span className="text-lg md:text-xl font-display font-semibold whitespace-nowrap">
+                Aavishkar<span className="text-aavishkar-green">25</span>
+              </span>
             </div>
             <p className="text-white/70 mb-6 text-sm md:text-base">
               The annual technical festival of Kathmandu University Robotics Club (KURC).
@@ -85,3 +90,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
