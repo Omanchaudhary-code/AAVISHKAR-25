@@ -1,8 +1,8 @@
-
 import React, { useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { motion } from 'framer-motion';
 import { ChevronRight, Award, Users, Lightbulb, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   useEffect(() => {
@@ -201,9 +201,12 @@ const About = () => {
             </div>
 
             <div className="text-center mt-8">
-              <a href="#" className="inline-flex items-center text-aavishkar-blue hover:text-aavishkar-darkblue font-semibold transition-colors">
+              <Link 
+                to="/team" 
+                className="inline-flex items-center text-aavishkar-blue hover:text-aavishkar-darkblue font-semibold transition-colors"
+              >
                 Meet the entire team <ChevronRight className="ml-1 h-4 w-4" />
-              </a>
+              </Link>
             </div>
           </div>
         </motion.div>
