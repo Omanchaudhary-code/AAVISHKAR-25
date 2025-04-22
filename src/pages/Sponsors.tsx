@@ -1,25 +1,98 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, Handshake, Support } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
+const SponsorSection = ({ title, icon, description, color }: { 
+  title: string; 
+  icon: React.ReactNode; 
+  description: string;
+  color: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="mb-16"
+  >
+    <div className="text-center mb-8">
+      <div className={cn(
+        "inline-flex items-center justify-center w-16 h-16 rounded-xl mb-4",
+        color
+      )}>
+        {icon}
+      </div>
+      <h2 className="text-3xl font-display font-bold mb-3">{title}</h2>
+      <p className="text-muted-foreground max-w-2xl mx-auto">
+        {description}
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {[1, 2, 3].map((_, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ y: -5 }}
+          className="group relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg transform rotate-1 group-hover:rotate-2 transition-transform" />
+          <div className="relative aspect-video bg-white rounded-lg shadow-md flex items-center justify-center p-8 border border-gray-200">
+            <span className="text-muted-foreground font-medium">Coming Soon</span>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+);
 
 const Sponsors = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="container mx-auto px-4 py-24">
-        <h1 className="text-4xl font-display font-bold text-center mb-12">Our Sponsors</h1>
-        <div className="text-center text-lg text-muted-foreground mb-8">
-          Sponsorship details for Aavishkar 2025 will be announced soon.
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Placeholder for sponsor logos */}
-          {[1, 2, 3].map((_, index) => (
-            <div key={index} className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <span className="text-muted-foreground">Sponsor Space</span>
-            </div>
-          ))}
-        </div>
+      <div className="pt-24 pb-16">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="container mx-auto px-4"
+        >
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Our Supporters</h1>
+            <div className="h-1 w-20 bg-gradient-to-r from-aavishkar-blue to-aavishkar-green mx-auto mb-6 rounded-full" />
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Meet the amazing organizations and partners who make Aavishkar possible through their generous support and collaboration.
+            </p>
+          </motion.div>
+
+          <SponsorSection
+            title="Our Sponsors"
+            icon={<Star className="w-8 h-8 text-white" />}
+            description="Leading organizations that support our vision financially and help make Aavishkar a reality."
+            color="bg-gradient-to-r from-amber-500 to-orange-500"
+          />
+
+          <SponsorSection
+            title="Our Partners"
+            icon={<Handshake className="w-8 h-8 text-white" />}
+            description="Strategic collaborators who work alongside us to create impactful technological experiences."
+            color="bg-gradient-to-r from-blue-500 to-cyan-500"
+          />
+
+          <SponsorSection
+            title="Supported By"
+            icon={<Support className="w-8 h-8 text-white" />}
+            description="Organizations and institutions that provide valuable resources and support to our initiatives."
+            color="bg-gradient-to-r from-violet-500 to-purple-500"
+          />
+        </motion.div>
       </div>
       <Footer />
     </div>
