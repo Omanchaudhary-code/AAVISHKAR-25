@@ -1,14 +1,14 @@
 
 import React from 'react';
 import { cn } from "@/lib/utils";
-import { Users, Megaphone, Star, Support, Partner } from "lucide-react";
+import { TrendingUp, Users, ArrowUp, ArrowDown, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stats = [
   {
     title: "Social Media Reach",
     value: "50,000+",
-    icon: <Megaphone className="w-6 h-6" />,
+    icon: <TrendingUp className="w-6 h-6" />,
     gradient: "from-pink-500 to-rose-500"
   },
   {
@@ -20,19 +20,19 @@ const stats = [
   {
     title: "Event Participants",
     value: "500+",
-    icon: <Star className="w-6 h-6" />,
+    icon: <ArrowUp className="w-6 h-6" />,
     gradient: "from-blue-500 to-cyan-500"
   },
   {
     title: "Stalls",
     value: "60+",
-    icon: <Partner className="w-6 h-6" />,
+    icon: <ArrowRight className="w-6 h-6" />,
     gradient: "from-emerald-500 to-teal-500"
   },
   {
     title: "School/College Visitors",
     value: "45+",
-    icon: <Support className="w-6 h-6" />,
+    icon: <ArrowUp className="w-6 h-6" />,
     gradient: "from-amber-500 to-orange-500"
   }
 ];
@@ -40,10 +40,31 @@ const stats = [
 const Stats = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-aavishkar-darkblue to-aavishkar-blue relative overflow-hidden">
-      {/* Animated background circles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 -top-48 -left-48 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute w-96 h-96 -bottom-48 -right-48 bg-white/5 rounded-full blur-3xl" />
+        <motion.div 
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ 
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute w-96 h-96 -top-48 -left-48 bg-white/5 rounded-full blur-3xl"
+        />
+        <motion.div 
+          animate={{ 
+            rotate: [360, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ 
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute w-96 h-96 -bottom-48 -right-48 bg-white/5 rounded-full blur-3xl"
+        />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -69,9 +90,13 @@ const Stats = () => {
                 key={`${stat.title}-${index}`}
                 className="flex-none w-72 mx-4"
               >
-                <div className="relative group">
+                <motion.div 
+                  className="relative group"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur" />
-                  <div className="relative bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/10 transition-all duration-300 hover:border-white/20 hover:translate-y-[-2px]">
+                  <div className="relative bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/10 transition-all duration-300 hover:border-white/20">
                     <div className={cn(
                       "w-12 h-12 rounded-lg bg-gradient-to-br flex items-center justify-center mb-4",
                       stat.gradient
@@ -85,7 +110,7 @@ const Stats = () => {
                       {stat.value}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>

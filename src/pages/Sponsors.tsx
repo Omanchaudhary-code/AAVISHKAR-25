@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Handshake, Support } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users } from 'lucide-react';
+import { cn } from "@/lib/utils";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -36,12 +37,13 @@ const SponsorSection = ({ title, icon, description, color }: {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          whileHover={{ y: -5 }}
+          whileHover={{ y: -5, scale: 1.02 }}
           className="group relative"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg transform rotate-1 group-hover:rotate-2 transition-transform" />
-          <div className="relative aspect-video bg-white rounded-lg shadow-md flex items-center justify-center p-8 border border-gray-200">
-            <span className="text-muted-foreground font-medium">Coming Soon</span>
+          <div className="relative bg-white rounded-lg shadow-lg flex items-center justify-center p-8 border border-gray-200 backdrop-blur-sm">
+            <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            <span className="text-muted-foreground font-medium relative z-10">Coming Soon</span>
           </div>
         </motion.div>
       ))}
@@ -51,7 +53,7 @@ const SponsorSection = ({ title, icon, description, color }: {
 
 const Sponsors = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
       <Navbar />
       <div className="pt-24 pb-16">
         <motion.div
@@ -74,21 +76,21 @@ const Sponsors = () => {
 
           <SponsorSection
             title="Our Sponsors"
-            icon={<Star className="w-8 h-8 text-white" />}
+            icon={<TrendingUp className="w-8 h-8 text-white" />}
             description="Leading organizations that support our vision financially and help make Aavishkar a reality."
             color="bg-gradient-to-r from-amber-500 to-orange-500"
           />
 
           <SponsorSection
             title="Our Partners"
-            icon={<Handshake className="w-8 h-8 text-white" />}
+            icon={<Users className="w-8 h-8 text-white" />}
             description="Strategic collaborators who work alongside us to create impactful technological experiences."
             color="bg-gradient-to-r from-blue-500 to-cyan-500"
           />
 
           <SponsorSection
             title="Supported By"
-            icon={<Support className="w-8 h-8 text-white" />}
+            icon={<ArrowRight className="w-8 h-8 text-white" />}
             description="Organizations and institutions that provide valuable resources and support to our initiatives."
             color="bg-gradient-to-r from-violet-500 to-purple-500"
           />
