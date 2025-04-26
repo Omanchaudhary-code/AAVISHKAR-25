@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { cn } from "@/lib/utils";
-import { TrendingUp, Users, ArrowUp, ArrowDown, ArrowRight } from "lucide-react";
+import { TrendingUp, Users, ArrowUp, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const stats = [
   {
@@ -38,6 +38,8 @@ const stats = [
 ];
 
 const Stats = () => {
+  const isMobile = useIsMobile();
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-aavishkar-darkblue to-aavishkar-blue relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -83,12 +85,16 @@ const Stats = () => {
           </p>
         </motion.div>
 
-        <div className="overflow-hidden relative">
-          <div className="flex animate-marquee">
-            {[...stats, ...stats].map((stat, index) => (
-              <div 
+        {isMobile ? (
+          <div className="space-y-4 px-2">
+            {stats.map((stat, index) => (
+              <motion.div
                 key={`${stat.title}-${index}`}
-                className="flex-none w-72 mx-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="w-full"
               >
                 <motion.div 
                   className="relative group"
@@ -111,10 +117,43 @@ const Stats = () => {
                     </p>
                   </div>
                 </motion.div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        ) : (
+          <div className="overflow-hidden relative">
+            <div className="flex animate-marquee">
+              {[...stats, ...stats].map((stat, index) => (
+                <div 
+                  key={`${stat.title}-${index}`}
+                  className="flex-none w-72 mx-4"
+                >
+                  <motion.div 
+                    className="relative group"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl blur" />
+                    <div className="relative bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/10 transition-all duration-300 hover:border-white/20">
+                      <div className={cn(
+                        "w-12 h-12 rounded-lg bg-gradient-to-br flex items-center justify-center mb-4",
+                        stat.gradient
+                      )}>
+                        {stat.icon}
+                      </div>
+                      <h3 className="text-lg font-medium text-white/80 mb-2">
+                        {stat.title}
+                      </h3>
+                      <p className="text-3xl font-display font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                        {stat.value}
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <style jsx>{`
