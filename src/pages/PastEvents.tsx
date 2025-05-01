@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Timeline from '@/components/Timeline';
@@ -130,34 +131,22 @@ const PastEvents = () => {
       <div className="pt-24 md:pt-28">
         <div className="container mx-auto px-4 py-8 md:py-12">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="relative overflow-hidden py-10 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-aavishkar-blue/5 to-aavishkar-green/5 z-0"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,#4AA5EB10,transparent_60%),radial-gradient(circle_at_70%_20%,#65B32E10,transparent_60%)] z-0"></div>
-            
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-center relative z-10"
-            >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-aavishkar-darkblue">
-                Past Events
-              </h1>
-              <div className="h-1.5 w-32 md:w-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-aavishkar-yellow via-aavishkar-yellow to-aavishkar-yellow/70"></div>
-              <p className="text-foreground/70 max-w-2xl mx-auto text-base md:text-lg px-4">
-                Relive the moments from previous Aavishkar events through our timeline and gallery. 
-                Witness the journey of innovation and creativity.
-              </p>
-            </motion.div>
+            <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 text-aavishkar-darkblue">Past Events</h1>
+            <div className="h-1 w-20 bg-aavishkar-yellow mx-auto mb-6 rounded-full" />
+            <p className="text-foreground/70 max-w-2xl mx-auto">
+              Relive the moments from previous Aavishkar events through our timeline and gallery. Witness the journey of innovation and creativity.
+            </p>
           </motion.div>
         </div>
 
         <Timeline />
         
-        <div id="gallery" className="container mx-auto px-4 py-16 md:py-24">
+        <div className="container mx-auto px-4 py-16 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
