@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
-import ParticlesBackground from "./ParticlesBackground";
 import { Link } from "react-router-dom";
+import TechBackground from './TechBackground';
 
 const Hero = () => {
   // Set the one minute countdown (60 seconds)
@@ -66,14 +65,8 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-b from-white to-aavishkar-white/30"
     >
-      {/* Colorful animated background particles */}
-      <ParticlesBackground />
-
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute top-20 -right-20 w-80 h-80 bg-aavishkar-green/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -left-20 w-80 h-80 bg-aavishkar-blue/10 rounded-full blur-3xl" />
-      </div>
+      {/* Tech-inspired animated background */}
+      <TechBackground />
 
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-16 z-10">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
