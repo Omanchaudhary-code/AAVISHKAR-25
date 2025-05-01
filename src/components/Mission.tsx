@@ -43,7 +43,7 @@ const Mission = () => {
           <div className="md:order-1 relative">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="/lovable-uploads/0144588e-95f1-4eae-9b0d-fbda59523016.png" 
+                src="/uploads/team-2024.jpg" 
                 alt="KURC Team" 
                 className="w-full h-auto" 
               />

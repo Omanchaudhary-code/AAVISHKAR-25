@@ -9,7 +9,7 @@ const pastEvents = [
     year: "2017",
     theme: "Yatra ko Prarambha",
     description: "Aavishkar 17 was organized. Several pre-events and main events were conducted based on the theme. 'Enigma: Finding the way' and 'Hardware Hackathon' Was the main events that involved enthusiasts from all over Nepal to compete to develop the technology.",
-    image: "/lovable-uploads/f6f6748d-a62f-46dd-973b-e6fa648649c2.png"
+    image: "/uploads/hardware-hackthon.jpg"
   },
   {
     year: "2018",

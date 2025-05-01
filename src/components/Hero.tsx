@@ -7,10 +7,10 @@ import TechBackground from './TechBackground';
 const Hero = () => {
   // Set the one minute countdown (60 seconds)
   const [timeLeft, setTimeLeft] = useState({
-    days: 0,
+    days: 10,
     hours: 0,
     minutes: 0,
-    seconds: 5
+    seconds: 0
   });
 
   const [eventStarted, setEventStarted] = useState(false);
@@ -186,8 +186,8 @@ const Hero = () => {
               <div className="group transform transition-all duration-300 hover:scale-105">
                 <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-green/20 shadow-lg aspect-square">
                   <img
-                    src="/lovable-uploads/67bb11fe-a984-4aec-8687-f7114234aeb3.png"
-                    alt="Student with trophy"
+                    src="/uploads/aavishkar-25.png"
+                    alt="Aavishkar-25"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -195,8 +195,8 @@ const Hero = () => {
               <div className="group transform transition-all duration-300 hover:scale-105 mt-8">
                 <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-yellow/20 shadow-lg aspect-square">
                   <img
-                    src="/lovable-uploads/e330865f-5aec-48fb-ab63-62950900dfa0.png"
-                    alt="Aquabot in water"
+                    src="/uploads/speaker_podium.jpg"
+                    alt="Speaker in the podium"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -204,8 +204,8 @@ const Hero = () => {
               <div className="group transform transition-all duration-300 hover:scale-105 -mt-8">
                 <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-blue/20 shadow-lg aspect-square">
                   <img
-                    src="/lovable-uploads/3b4906c4-0330-49d8-8bc7-06de5a224192.png"
-                    alt="KURC team"
+                    src="/uploads/scripting.jpg"
+                    alt="Student preparing script"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -213,8 +213,8 @@ const Hero = () => {
               <div className="group transform transition-all duration-300 hover:scale-105">
                 <div className="rounded-2xl overflow-hidden border-2 border-aavishkar-darkblue/20 shadow-lg aspect-square">
                   <img
-                    src="/lovable-uploads/d553e50d-8757-408f-853c-7bd93298485f.png"
-                    alt="Innovation showcase"
+                    src="/uploads/aquabot-2.jpg"
+                    alt="Aquabot competition-2024"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -223,9 +223,9 @@ const Hero = () => {
 
             {/* Logos */}
             <div className="absolute bottom-0 md:bottom-6 left-0 right-0 flex justify-center space-x-3">
-              <img src="/lovable-uploads/945659c3-f9c5-47d3-8e8d-359afac7f254.png" alt="Kathmandu University Logo" className="h-10 w-auto" />
-              <img src="/lovable-uploads/ea507bbe-f7e9-4d1e-8c70-7a7c24bc833b.png" alt="KURC Logo" className="h-10 w-auto" />
-              <img src="/lovable-uploads/98e57274-8514-4b25-9115-25551aa2a0db.png" alt="TTC Logo" className="h-10 w-auto" />
+              <img src="/uploads/ku_logo.png" alt="KU-LOGO" className="h-10 w-auto" />
+              <img src="/uploads/AA_logo.png" alt="Aavishkar-LOGO" className="h-10 w-auto" />
+              <img src="/uploads/kurc-logo-trans.png" alt="Kurc-Logo" className="h-10 w-auto" />
             </div>
           </div>
         </div>

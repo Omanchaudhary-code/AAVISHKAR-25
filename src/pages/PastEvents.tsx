@@ -18,67 +18,79 @@ const PastEvents = () => {
 
   const recentGallery = [
     {
-      src: "/lovable-uploads/67bb11fe-a984-4aec-8687-f7114234aeb3.png",
-      alt: "Award ceremony",
-      year: "2024",
-      caption: "Winners of the Robotics Competition"
+      src: "/uploads/discussion.jpg",
+      alt: "",
+      year: "2025",
+      caption: "Learning Through Collaboration"
     },
     {
-      src: "/lovable-uploads/3b4906c4-0330-49d8-8bc7-06de5a224192.png",
+      src: "/uploads/teaminside.jpg",
       alt: "Team Photo",
       year: "2024",
       caption: "KURC Team Members"
     },
     {
-      src: "/lovable-uploads/e330865f-5aec-48fb-ab63-62950900dfa0.png",
+      src: "/uploads/aquabot-2.jpg",
       alt: "Aquabot Competition",
       year: "2024",
       caption: "Aquabot Competition Finals"
     },
     {
-      src: "/lovable-uploads/d553e50d-8757-408f-853c-7bd93298485f.png",
-      alt: "Innovation Exhibition",
-      year: "2024",
-      caption: "Innovation Showcase"
+      src: "/uploads/recent.jpg",
+      alt: "Mentors in Hackathon",
+      year: "2025",
+      caption: "Mentors in Hackathon"
     },
     {
-      src: "/lovable-uploads/e67b9874-91e4-45ea-bfdf-b706e1b03282.png",
+      src: "/uploads/hardware-1.jpg",
       alt: "Hardware Hackathon",
-      year: "2024",
+      year: "2025",
       caption: "24-hour Hardware Hackathon"
     },
     {
-      src: "/lovable-uploads/f6f6748d-a62f-46dd-973b-e6fa648649c2.png",
+      src: "/uploads/raspberrypi.png",
       alt: "Workshop Session", 
-      year: "2024",
-      caption: "Pre-event Workshop Session"
+      year: "2025",
+      caption: "Rasp Berry Pi Workshop Session"
     }
   ];
 
   const archiveGallery = [
     {
-      src: "/lovable-uploads/0144588e-95f1-4eae-9b0d-fbda59523016.png",
+      src: "/uploads/memories.JPG",
       alt: "Aavishkar 2023",
       year: "2023",
       caption: "Opening Ceremony"
     },
     {
-      src: "/lovable-uploads/67bb11fe-a984-4aec-8687-f7114234aeb3.png",
+      src: "/uploads/drone.jpg",
       alt: "Aavishkar 2023",
       year: "2023",
-      caption: "Award Ceremony"
+      caption: "Drone Showcasing"
     },
     {
-      src: "/lovable-uploads/3b4906c4-0330-49d8-8bc7-06de5a224192.png",
+      src: "/uploads/gift_hampers.jpg",
       alt: "Aavishkar 2022",
-      year: "2022",
+      year: "2023",
       caption: "Team Photo"
     },
     {
-      src: "/lovable-uploads/e330865f-5aec-48fb-ab63-62950900dfa0.png",
+      src: "/uploads/mentoring.jpg",
       alt: "Aavishkar 2021",
-      year: "2021",
-      caption: "Aquabot Prototype Testing"
+      year: "2023",
+      caption: "Mentoring"
+    },
+    {
+      src: "/uploads/preparingdrone.jpg",
+      alt: "Aavishkar 2021",
+      year: "2023",
+      caption: "Preparing Drone"
+    },
+    {
+      src: "/uploads/aqua.jpg",
+      alt: "Aavishkar 2021",
+      year: "2023",
+      caption: "Aquabot Testing"
     }
   ];
 

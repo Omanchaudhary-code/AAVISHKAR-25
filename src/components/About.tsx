@@ -134,7 +134,7 @@ const About = () => {
             <div className="relative z-10">
               <div className="aspect-square overflow-hidden rounded-2xl shadow-xl animate-float">
                 <img 
-                  src="/lovable-uploads/7c9482d8-1cf4-47b8-9b69-8f14d394b401.png" 
+                  src="/uploads/aavishkar-25.png" 
                   alt="Aavishkar Logo" 
                   className="w-full h-full object-contain bg-gradient-to-br from-aavishkar-blue/10 to-aavishkar-green/10 p-8" 
                 />

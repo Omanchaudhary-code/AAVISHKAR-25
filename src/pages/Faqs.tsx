@@ -232,7 +232,7 @@ const Faqs = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            src="/lovable-uploads/e7bca271-75d7-48e4-a811-6b7681706463.png"
+            src="/uploads/ruchi.png"
             alt="Ruchii mascot"
             className="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-xl"
             draggable={false}

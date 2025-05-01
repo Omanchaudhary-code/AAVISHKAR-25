@@ -57,7 +57,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2 min-w-0 group z-10">
           <div className="rounded-full bg-glass shadow-lg border border-aavishkar-blue/70 p-1.5 sm:p-1.5 md:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center ring-2 ring-aavishkar-blue/40 group-hover:ring-4 transition-all duration-200">
             <img
-              src="/lovable-uploads/cf369733-58a1-440f-abc9-61ce6398c6ee.png"
+              src="/uploads/kurc-logo.png"
               alt="KURC Logo"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain drop-shadow-lg"
               style={{ background: "transparent" }}

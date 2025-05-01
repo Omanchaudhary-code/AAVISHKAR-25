@@ -16,7 +16,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-6 min-w-0">
               <div className="rounded-xl bg-glass shadow-xl border border-aavishkar-blue p-2 w-16 h-16 flex items-center justify-center">
                 <img
-                  src="/lovable-uploads/e7bca271-75d7-48e4-a811-6b7681706463.png"
+                  src="/uploads/ruchi.png"
                   alt="Aavishkar Owl Mascot"
                   className="w-12 h-12 md:w-14 md:h-14 object-contain"
                   draggable={false}
