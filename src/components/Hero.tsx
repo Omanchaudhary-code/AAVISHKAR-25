@@ -150,7 +150,7 @@ const Hero = () => {
                   <div className="text-sm md:text-base text-white/80 mt-2 text-center">
                     Join us at Kathmandu University
                   </div>
-                  <Link to="/events" className="mt-4 w-full py-2 flex items-center justify-center text-center bg-white/20 hover:bg-white/30 text-white rounded-md transition-colors">
+                  <Link to="/past-events#gallery" className="mt-4 w-full py-2 flex items-center justify-center text-center bg-white/20 hover:bg-white/30 text-white rounded-md transition-colors">
                     See Live Updates <ArrowRight className="ml-1 w-4 h-4" />
                   </Link>
                 </div>
