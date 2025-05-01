@@ -85,7 +85,6 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-6 text-center text-white/50 text-sm">
           <p>© {new Date().getFullYear()} Kathmandu University Robotics Club. All rights reserved.</p>
-          <p className="mt-2 text-white/40">Developed by Oman Chaudhary</p>
         </div>
       </div>
     </footer>
