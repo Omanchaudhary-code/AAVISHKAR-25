@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
         <Navbar />
-        <main className="min-h-screen pt-16 sm:pt-20 md:pt-24">
+        <main className="min-h-screen w-full overflow-x-hidden">
           {children}
         </main>
       </body>
