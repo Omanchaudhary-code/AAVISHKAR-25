@@ -45,17 +45,13 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/80 backdrop-blur-xl py-2"
-          : "bg-white/40 backdrop-blur-lg py-3 sm:py-4"
+          ? "bg-white shadow-md py-2"
+          : "bg-white py-3 sm:py-4"
       )}
-      style={{
-        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.05)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
-      }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-14 sm:h-16 md:h-[72px] relative">
         <Link to="/" className="flex items-center gap-2 min-w-0 group z-10">
-          <div className="rounded-full bg-glass shadow-lg border border-aavishkar-blue/70 p-1.5 sm:p-1.5 md:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center ring-2 ring-aavishkar-blue/40 group-hover:ring-4 transition-all duration-200">
+          <div className="rounded-full bg-white shadow-lg border border-aavishkar-blue/70 p-1.5 sm:p-1.5 md:p-2 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center ring-2 ring-aavishkar-blue/40 group-hover:ring-4 transition-all duration-200">
             <img
               src="/uploads/kurc-logo.png"
               alt="KURC Logo"
@@ -93,7 +89,7 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           className={cn(
-            "md:hidden text-foreground rounded-full focus:outline-none focus:ring-2 focus:ring-aavishkar-blue/40 p-2 transition active:scale-95 bg-white/60 backdrop-blur-[3px] shadow-md border border-white/30 z-10"
+            "md:hidden text-foreground rounded-full focus:outline-none focus:ring-2 focus:ring-aavishkar-blue/40 p-2 transition active:scale-95 bg-white shadow-md border border-gray-200 z-10"
           )}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
@@ -105,7 +101,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-white/95 backdrop-blur-xl pt-24 px-6 md:hidden transition-transform duration-300 ease-in-out z-[5]",
+          "fixed inset-0 bg-white pt-24 px-6 md:hidden transition-transform duration-300 ease-in-out z-[5]",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
