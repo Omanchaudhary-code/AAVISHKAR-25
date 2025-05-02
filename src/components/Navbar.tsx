@@ -31,6 +31,22 @@ const Navbar = () => {
     }
   }, [isMobile, isOpen]);
 
+  // Control body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent scrolling on body when menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Re-enable scrolling when menu is closed
+      document.body.style.overflow = '';
+    }
+    
+    // Cleanup function to ensure scrolling is re-enabled when component unmounts
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
