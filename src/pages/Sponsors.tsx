@@ -5,13 +5,6 @@ import { ArrowRight, TrendingUp, Users, Image } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
-} from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 
 const sponsorImages = [
@@ -22,66 +15,18 @@ const sponsorImages = [
   "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=800&auto=format&fit=crop",
 ];
 
-const SponsorCarousel = () => (
-  <motion.div 
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7 }}
-    className="w-full max-w-4xl mx-auto mb-20"
-  >
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      className="w-full"
-    >
-      <CarouselContent>
-        {sponsorImages.map((image, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <motion.div 
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="h-full"
-            >
-              <Card className="overflow-hidden border-none rounded-xl h-full">
-                <CardContent className="p-0 aspect-square relative">
-                  <img
-                    src={image} 
-                    alt={`Sponsor ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <p className="text-white font-medium">Technology Partner {index + 1}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <div className="flex justify-center mt-4 gap-2">
-        <CarouselPrevious className="static mx-2 transform-none bg-white" />
-        <CarouselNext className="static mx-2 transform-none bg-white" />
-      </div>
-    </Carousel>
-  </motion.div>
-);
-
-const SponsorSection = ({ title, icon, description, color }: { 
+const SponsorSection = ({ title, icon, description, color, images }: { 
   title: string; 
   icon: React.ReactNode; 
   description: string;
   color: string;
+  images: string[];
 }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="mb-16"
+    className="mb-24"
   >
     <div className="text-center mb-8">
       <div className={cn(
@@ -95,73 +40,76 @@ const SponsorSection = ({ title, icon, description, color }: {
         {description}
       </p>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {[1, 2, 3].map((_, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          whileHover={{ y: -5, scale: 1.02 }}
-          className="group relative"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg transform rotate-1 group-hover:rotate-2 transition-transform" />
-          <div className="relative bg-white rounded-lg shadow-lg flex items-center justify-center p-8 border border-gray-200 backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-white/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-            <span className="text-muted-foreground font-medium relative z-10">Coming Soon</span>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </motion.div>
-);
-
-// Staggered photo grid with animations
-const PhotoGrid = () => (
-  <motion.div 
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 0.5 }}
-    className="max-w-6xl mx-auto mb-20"
-  >
-    <h3 className="text-2xl font-display font-bold mb-6 text-center">Our Technology Partners</h3>
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
-      {[...Array(6)].map((_, i) => {
-        const randomImage = sponsorImages[i % sponsorImages.length];
-        return (
+    
+    {/* Staggered photo grid with animations */}
+    <div className="max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
+        {images.map((image, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            whileInView={{ 
+              opacity: 1, 
+              scale: 1, 
+              y: 0 
+            }}
             viewport={{ once: true }}
             transition={{ 
-              duration: 0.5, 
-              delay: i * 0.1,
+              duration: 0.6, 
+              delay: i * 0.15,
               ease: [0.22, 1, 0.36, 1] 
             }}
             whileHover={{ 
-              scale: 1.03, 
+              scale: 1.05,
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
               rotate: i % 2 === 0 ? 1 : -1 
             }}
             className={cn(
-              "overflow-hidden rounded-lg shadow-md aspect-[4/3]",
-              i === 0 && "col-span-2 row-span-2 md:aspect-square",
-              i === 3 && "md:col-span-2"
+              "group overflow-hidden rounded-lg shadow-md",
+              i === 0 && "md:col-span-2 md:row-span-2"
             )}
           >
-            <img 
-              src={randomImage}
-              alt={`Technology partner ${i+1}`}
-              className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
-            />
+            <div className="overflow-hidden w-full h-full aspect-[4/3]">
+              <img 
+                src={image}
+                alt={`${title} ${i+1}`}
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-4"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              >
+                <p className="text-white font-medium text-lg">Partner {i + 1}</p>
+              </motion.div>
+            </div>
           </motion.div>
-        );
-      })}
+        ))}
+      </div>
     </div>
   </motion.div>
 );
 
 const Sponsors = () => {
+  // Images for each section
+  const sponsorImages = [
+    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop",
+  ];
+
+  const partnerImages = [
+    "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&auto=format&fit=crop",
+  ];
+
+  const supportedByImages = [
+    "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop",
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
       <Navbar />
@@ -195,17 +143,12 @@ const Sponsors = () => {
             </motion.div>
           </motion.div>
 
-          {/* New animated carousel section */}
-          <SponsorCarousel />
-          
-          {/* New animated photo grid */}
-          <PhotoGrid />
-
           <SponsorSection
             title="Our Sponsors"
             icon={<TrendingUp className="w-8 h-8 text-white" />}
             description="Leading organizations that support our vision financially and help make Aavishkar a reality."
             color="bg-gradient-to-r from-amber-500 to-orange-500"
+            images={sponsorImages}
           />
 
           <SponsorSection
@@ -213,6 +156,7 @@ const Sponsors = () => {
             icon={<Users className="w-8 h-8 text-white" />}
             description="Strategic collaborators who work alongside us to create impactful technological experiences."
             color="bg-gradient-to-r from-blue-500 to-cyan-500"
+            images={partnerImages}
           />
 
           <SponsorSection
@@ -220,6 +164,7 @@ const Sponsors = () => {
             icon={<ArrowRight className="w-8 h-8 text-white" />}
             description="Organizations and institutions that provide valuable resources and support to our initiatives."
             color="bg-gradient-to-r from-violet-500 to-purple-500"
+            images={supportedByImages}
           />
         </motion.div>
       </div>
