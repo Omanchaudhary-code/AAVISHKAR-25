@@ -1,10 +1,75 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Image } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselNext, 
+  CarouselPrevious 
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+
+const sponsorImages = [
+  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=800&auto=format&fit=crop",
+];
+
+const SponsorCarousel = () => (
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7 }}
+    className="w-full max-w-4xl mx-auto mb-20"
+  >
+    <Carousel
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+      className="w-full"
+    >
+      <CarouselContent>
+        {sponsorImages.map((image, index) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <motion.div 
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="h-full"
+            >
+              <Card className="overflow-hidden border-none rounded-xl h-full">
+                <CardContent className="p-0 aspect-square relative">
+                  <img
+                    src={image} 
+                    alt={`Sponsor ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p className="text-white font-medium">Technology Partner {index + 1}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <div className="flex justify-center mt-4 gap-2">
+        <CarouselPrevious className="static mx-2 transform-none bg-white" />
+        <CarouselNext className="static mx-2 transform-none bg-white" />
+      </div>
+    </Carousel>
+  </motion.div>
+);
 
 const SponsorSection = ({ title, icon, description, color }: { 
   title: string; 
@@ -51,6 +116,51 @@ const SponsorSection = ({ title, icon, description, color }: {
   </motion.div>
 );
 
+// Staggered photo grid with animations
+const PhotoGrid = () => (
+  <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+    className="max-w-6xl mx-auto mb-20"
+  >
+    <h3 className="text-2xl font-display font-bold mb-6 text-center">Our Technology Partners</h3>
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+      {[...Array(6)].map((_, i) => {
+        const randomImage = sponsorImages[i % sponsorImages.length];
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.5, 
+              delay: i * 0.1,
+              ease: [0.22, 1, 0.36, 1] 
+            }}
+            whileHover={{ 
+              scale: 1.03, 
+              rotate: i % 2 === 0 ? 1 : -1 
+            }}
+            className={cn(
+              "overflow-hidden rounded-lg shadow-md aspect-[4/3]",
+              i === 0 && "col-span-2 row-span-2 md:aspect-square",
+              i === 3 && "md:col-span-2"
+            )}
+          >
+            <img 
+              src={randomImage}
+              alt={`Technology partner ${i+1}`}
+              className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
+            />
+          </motion.div>
+        );
+      })}
+    </div>
+  </motion.div>
+);
+
 const Sponsors = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
@@ -84,6 +194,12 @@ const Sponsors = () => {
               </p>
             </motion.div>
           </motion.div>
+
+          {/* New animated carousel section */}
+          <SponsorCarousel />
+          
+          {/* New animated photo grid */}
+          <PhotoGrid />
 
           <SponsorSection
             title="Our Sponsors"
