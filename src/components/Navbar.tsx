@@ -43,10 +43,10 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-white",
         scrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-white py-3 sm:py-4"
+          ? "shadow-md py-2"
+          : "py-3 sm:py-4"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-14 sm:h-16 md:h-[72px] relative">
